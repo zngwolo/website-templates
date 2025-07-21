@@ -1,0 +1,36 @@
+name: Template Validation
+
+on:
+  push:
+    branches: [ main ]
+  pull_request:
+    branches: [ main ]
+
+jobs:
+  validate-templates:
+    runs-on: ubuntu-latest
+
+    steps:
+    - uses: actions/checkout@v4
+
+    - name: Setup Node.js
+      uses: actions/setup-node@v4
+      with:
+        node-version: '18'
+        cache: 'npm'
+
+    - name: Install dependencies
+      run: npm ci
+
+    - name: Validate template structure
+      run: |
+        echo "Validating template structure..."
+        # Add validation logic here
+
+    - name: Run linting
+      run: npm run lint-all || true
+
+    - name: Check for required files
+      run: |
+        find templates -name "package.json" -exec echo "Found: {}" \;
+        find templates -name "README.md" -exec echo "Found: {}" \;

@@ -1,0 +1,32 @@
+{
+  "name": "@zngwolo/website-templates",
+  "version": "1.0.0",
+  "description": "Professional website templates for small businesses",
+  "main": "index.js",
+  "scripts": {
+    "create-template": "node scripts/create-template.js",
+    "test-all": "node scripts/test-performance.js",
+    "deploy-all": "node scripts/deploy-all.js",
+    "lint-all": "npm run lint --workspaces",
+    "build-all": "npm run build --workspaces"
+  },
+  "keywords": [
+    "website-templates",
+    "nextjs",
+    "react",
+    "tailwind",
+    "small-business",
+    "web-development"
+  ],
+  "author": "Ngwolo Digital Solutions <zngwolo@icloud.com>",
+  "license": "MIT",
+  "workspaces": [
+    "templates/*/*"
+  ],
+  "devDependencies": {
+    "lighthouse": "^11.0.0",
+    "puppeteer": "^21.0.0",
+    "fs-extra": "^11.0.0",
+    "chalk": "^5.0.0"
+  }
+}
